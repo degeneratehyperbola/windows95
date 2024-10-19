@@ -121,7 +121,7 @@
 	position: absolute;
 
 	border: 3px solid;
-	border-image: url('../assets/border.png') 1 repeat;
+	border-image: url('../assets/border.png') 1 round;
 
 	transition: all .3s linear;
 }

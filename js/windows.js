@@ -31,8 +31,8 @@ function implement(container) {
 					closeWindow(el);
 				}
 				else if (e.target.classList.contains('maximize')) {
-					el.classList.toggle('maximized');
-					e.target.innerText = el.classList.contains('maximized') ? '🗗' : '🗖';
+					maximizeWindow(el);
+					e.target.innerText = e.target.innerText === '🗖' ? '🗗' : '🗖';
 				}
 				else if (e.target.classList.contains('minimize')) {
 					minimizeWindow(el);
@@ -119,7 +119,7 @@ function bringUpWindow(w) {
 		setTimeout(() => {
 			wph.remove();
 			focusWindow(w);
-		}, 300);
+		}, 350);
 	}
 	else {
 		focusWindow(w);
@@ -246,5 +246,34 @@ function minimizeWindow(w) {
 	}, 10);
 	setTimeout(() => {
 		wph.remove();
-	}, 300);
+	}, 350);
+}
+
+function maximizeWindow(w) {
+	// Maximize animation
+	const rect = w.getBoundingClientRect();
+	const goalRect = !w.classList.contains('maximized') ? new DOMRect(0, 0, window.innerWidth, window.innerHeight) : w.rect;
+	if (!w.classList.contains('maximized'))
+		w.rect = rect;
+	w.hidden = true;
+
+	const wph = document.createElement('div');
+	wph.classList.add('wph');
+	wph.style.left = rect.left + 'px';
+	wph.style.top = rect.top + 'px';
+	wph.style.width = rect.width + 'px';
+	wph.style.height = rect.height + 'px';
+	w.parentNode.appendChild(wph);
+	
+	setTimeout(() => {
+		wph.style.left = goalRect.left + 'px';
+		wph.style.top = goalRect.top + 'px';
+		wph.style.width = goalRect.width + 'px';
+		wph.style.height = goalRect.height + 'px';
+	}, 10);
+	setTimeout(() => {
+		wph.remove();
+		w.classList.toggle('maximized');
+		w.hidden = false;
+	}, 350);
 }
