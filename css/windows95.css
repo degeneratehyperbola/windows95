@@ -240,7 +240,7 @@ input {
 	background-color: var(--input-bg);
 	outline: none;
 
-	cursor: url('../assets/cursors/beam.cur'), auto;
+	cursor: url('../assets/cursors/beam.cur'), auto !important;
 }
 /* #endregion */
 
