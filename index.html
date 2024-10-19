@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portafolio</title>
+		<link rel="stylesheet" href="css/windows95.css">
+		<script src="js/windows.js"></script>
+	</head>
+
+	<body style="padding: 0; margin: 0; width: 100vw; height: 100vh;">
+		<div class="windows95">
+			<div class="desktop">
+				<div class="icon" ondblclick="openWindowLoad('Inputs Test')">
+					<img src="assets/icons/chip_ramdrive-2.png">
+					<span>Inputs Test</span>
+				</div>
+	
+				<div class="icon" ondblclick="openWindowLoad('Explorer')">
+					<img src="assets/icons/computer-4.png">
+					<span>My Computer</span>
+				</div>
+			</div>
+	
+			<div class="taskbar">
+				<button>Start</button>
+			</div>
+	
+			<template id="Inputs Test">
+				<div class="titlebar">
+					<span class="title">Inputs Test</span>
+					<div class="buttons">
+						<button class="minimize"></button>
+						<button class="maximize"></button>
+						<button class="close"></button>
+					</div>
+				</div>
+				<div class="content rows">
+					<div class="flex growall">
+						<input type="number" placeholder="Number">
+						<input type="text" placeholder="Text">
+						<input type="text" placeholder="Text">
+					</div>
+					<div class="flex growall">
+						<input type="number" placeholder="Number">
+						<input type="text" placeholder="Text">
+						<input type="text" placeholder="Text">
+					</div>
+					<button>Button</button>
+				</div>
+			</template>
+
+			<template id="Explorer">
+				<div class="titlebar">
+					<span class="title">Explorer</span>
+					<div class="buttons">
+						<button class="minimize"></button>
+						<button class="maximize"></button>
+						<button class="close"></button>
+					</div>
+				</div>
+				<div class="content rows">
+					<div class="flex">
+						<input type="text" class="grow">
+						<button>Button</button>
+					</div>
+					<div class="desktop horizontal">
+						<div class="icon" ondblclick="openWindowLoad('Inputs Test')">
+							<img src="assets/icons/chip_ramdrive-2.png">
+							<span>Inputs Test</span>
+						</div>
+						<div class="icon">
+							<img src="assets/icons/computer-4.png">
+							<span>My Computer</span>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+	</body>
+</html>
