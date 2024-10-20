@@ -12,7 +12,7 @@
 	--title-gradient: linear-gradient(to right, rgb(138, 138, 138) 0%, rgb(201, 201, 201) 100%);
 	--title-gradient-focused: linear-gradient(to right, rgb(9, 0, 131) 0%, rgb(92, 144, 228) 100%);
 
-	--user-select-col: rgba(34, 0, 255, 0.2);
+	--user-select-col: rgb(18, 0, 134);
 }
 .windows95 * {
 	box-sizing: border-box;
@@ -392,6 +392,89 @@ input[type='range']::-moz-range-thumb {
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
 	background-color: var(--bg);
+}
+/* #endregion */
+
+/* Ultimte CSS Fuckery here */
+/* #region Tree View */
+ul.treeview {
+	margin: 0;
+	padding: 5px !important;
+	
+	background-color: var(--bg2);
+	border: 2px solid;
+	border-image: url('../assets/borders/frame_in.png') 2 stretch;
+	list-style: none;
+}
+ul.treeview ul {
+	padding-left: 15px;
+	margin-left: 15px;
+	
+	border-left: 1px dotted var(--col-dark);
+	list-style: none;
+}
+
+ul.treeview ul > li {
+	line-height: 13px;
+
+	position: relative;
+}
+ul.treeview ul > li::before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	left: -15px;
+	top: 5px;
+
+	border-bottom: 1px dotted var(--col-dark);
+}
+ul.treeview ul > li:last-child::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	left: -20px;
+	bottom: 0;
+	top: 6px;
+
+	background-color: var(--bg2);
+}
+
+ul.treeview details > summary {
+	position: relative;
+	display: inline;
+	line-height: 13px;
+	
+	cursor: url('../assets/cursors/pointer.cur'), auto;
+}
+ul.treeview details > summary:focus {
+	outline: 1px dotted var(--col-dark);
+	outline-offset: -2px;
+}
+ul.treeview details > summary::before {
+	content: "+";
+	display: inline-block;
+	position: relative;
+	width: 5px;
+	height: 5px;
+	margin-right: 5px;
+	
+	padding: 2px;
+	text-align: center;
+
+	line-height: 5px;
+	font-size: 10px;
+	
+	background-color: var(--bg2);
+	border: 1px solid var(--col-dark);
+}
+ul.treeview ul details > summary::before {
+	margin-left: -20px;
+	z-index: 2;
+}
+ul.treeview details[open] > summary::before {
+	content: "-";
 }
 /* #endregion */
 
