@@ -1,5 +1,4 @@
 var windows = [];
-var icons = [];
 
 
 window.addEventListener('load', () => {
@@ -58,16 +57,6 @@ function implement(container) {
 						document.onmouseup = null;
 					};
 				}
-			};
-		}
-		else if (el.matches('.icon')) {
-			icons.push(el);
-			
-			el.onmousedown = (e) => {
-				icons.forEach(i => {
-					i.classList.remove('focused');
-				});
-				el.classList.add('focused');
 			};
 		}
 	}
