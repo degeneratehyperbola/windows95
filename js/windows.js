@@ -186,7 +186,6 @@ function openWindowLoad(templateId) {
 	}
 
 	const root = document.querySelector('.windows95');
-	root.classList.add('nocur');
 	setTimeout(() => {
 		openWindow(templateId);
 	}, 800);
