@@ -102,6 +102,9 @@
 	border-image: url('../assets/borders/frame.png') 2 stretch;
 	background-color: var(--grey-bg);
 }
+.window[hidden] {
+	display: none;
+}
 .window.focused {
 	z-index: 1;
 }
