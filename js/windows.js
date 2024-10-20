@@ -171,6 +171,8 @@ function openWindow(templateId) {
 	w.classList.add('window');
 	w.appendChild(template.content.cloneNode(true));
 	document.querySelector('.windows95').appendChild(w);
+	w.style.left = window.innerWidth / 2 - w.offsetWidth / 2 + 'px';
+	w.style.top = window.innerHeight / 2 - w.offsetHeight / 2 + 'px';
 	implement(w);
 	addAppbtn(w);
 	focusWindow(w);
