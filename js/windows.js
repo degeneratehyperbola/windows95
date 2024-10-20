@@ -166,7 +166,8 @@ function openWindow(templateId) {
 
 	const w = document.createElement('div');
 	w.id = template.id;
-	w.classList.add('window');
+	w.classList.add('window', ...template.classList);
+	w.style.cssText = template.style.cssText;
 	w.appendChild(template.content.cloneNode(true));
 	document.querySelector('.windows95').appendChild(w);
 	w.style.left = window.innerWidth / 2 - w.offsetWidth / 2 + 'px';
@@ -262,4 +263,44 @@ function maximizeWindow(w) {
 		w.classList.toggle('maximized');
 		w.hidden = false;
 	}, 350);
+}
+
+function contextMenu(e, templateId, right = false) {
+	const template = document.getElementById(templateId);
+	if (!template) return;
+
+	const buttonRect = e.target.getBoundingClientRect();
+
+	const cm = document.createElement('div');
+	cm.classList.add('contextmenu');
+	if (template.classList.length > 0)
+		cm.classList.add(...template.classList);
+	else
+		cm.classList.add('rows');
+	if (right)
+	{
+		cm.style.left = buttonRect.right + 'px';
+		cm.style.top = buttonRect.top + 'px';
+	}
+	else {
+		cm.style.left = buttonRect.left + 5 + 'px';
+		cm.style.top = buttonRect.bottom + 'px';
+	}
+	cm.appendChild(template.content.cloneNode(true));
+	document.querySelector('.windows95').appendChild(cm);
+
+	const oldOnMouseDown = document.onmousedown;
+	document.onmousedown = (e) => {
+		const rect = cm.getBoundingClientRect();
+		if (
+			e.clientX < rect.left ||
+			e.clientX > rect.right ||
+			e.clientY < rect.top ||
+			e.clientY > rect.bottom
+		) {
+			cm.remove();
+			document.onmousedown = oldOnMouseDown;
+			document.onmousedown(e);
+		}
+	};
 }
