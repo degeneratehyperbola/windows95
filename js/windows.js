@@ -30,9 +30,10 @@ function implement(container) {
 				if (e.target.classList.contains('close')) {
 					closeWindow(el);
 				}
-				else if (e.target.classList.contains('maximize')) {
+				else if (e.target.classList.contains('maximize') || e.target.classList.contains('maximize2')) {
 					maximizeWindow(el);
-					e.target.innerText = e.target.innerText === '🗖' ? '🗗' : '🗖';
+					e.target.classList.toggle('maximize2');
+					e.target.classList.toggle('maximize');
 				}
 				else if (e.target.classList.contains('minimize')) {
 					minimizeWindow(el);
@@ -58,15 +59,6 @@ function implement(container) {
 					};
 				}
 			};
-		}
-		else if (el.matches('.maximize')) {
-			el.innerText = '🗖';
-		}
-		else if (el.matches('.minimize')) {
-			el.innerText = '🗕';
-		}
-		else if (el.matches('.close')) {
-			el.innerText = '🗙';
 		}
 		else if (el.matches('.icon')) {
 			icons.push(el);
@@ -258,9 +250,9 @@ function minimizeWindow(w) {
 function maximizeWindow(w) {
 	// Maximize animation
 	const rect = w.getBoundingClientRect();
-	const goalRect = !w.classList.contains('maximized') ? new DOMRect(0, 0, window.innerWidth, window.innerHeight) : w.rect;
+	const goalRect = !w.classList.contains('maximized') ? new DOMRect(0, 0, window.innerWidth, window.innerHeight) : w.rectMaximize;
 	if (!w.classList.contains('maximized'))
-		w.rect = rect;
+		w.rectMaximize = rect;
 	w.hidden = true;
 
 	const wph = document.createElement('div');
