@@ -520,17 +520,13 @@ ul.treeview details[open] > summary::before {
 /* #endregion */
 
 /* #region Containers */
-.content {
-	padding: 8px !important;
-	gap: 5px !important;
-}
 .content5 {
 	padding: 5px !important;
 	gap: 5px !important;
 }
-.contentthin {
-	padding: 3px !important;
-	gap: 3px !important;
+.content {
+	padding: 2px !important;
+	gap: 2px !important;
 }
 .frame {
 	background-color: var(--bg);
