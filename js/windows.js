@@ -101,14 +101,15 @@ function bringUpWindow(w) {
 	// Reverse minimize animation
 	if (w.hidden) {
 		const rect = w.rect;
+		const appbtnRect = document.querySelector(`.taskbar .appbtn[data-window="${w.id}"]`).getBoundingClientRect();
 
 		const wph = document.createElement('div');
 		wph.classList.add('wph');
 		w.parentNode.appendChild(wph);
-		wph.style.top = '100%';
-		wph.style.left = '10%';
-		wph.style.width = '150px';
-		wph.style.height = '20px';
+		wph.style.top = appbtnRect.top + 'px';
+		wph.style.left = appbtnRect.left + 'px';
+		wph.style.width = appbtnRect.width + 'px';
+		wph.style.height = appbtnRect.height + 'px';
 		
 		setTimeout(() => {
 			wph.style.left = rect.left + 'px';
@@ -226,6 +227,7 @@ function closeWindow(w) {
 function minimizeWindow(w) {
 	// Save the client rect before hiding
 	const rect = w.getBoundingClientRect();
+	const appbtnRect = document.querySelector(`.taskbar .appbtn[data-window="${w.id}"]`).getBoundingClientRect();
 	w.rect = rect
 
 	w.hidden = true;
@@ -241,10 +243,10 @@ function minimizeWindow(w) {
 	w.parentNode.appendChild(wph);
 	
 	setTimeout(() => {
-		wph.style.top = '100%';
-		wph.style.left = '10%';
-		wph.style.width = '150px';
-		wph.style.height = '20px';
+		wph.style.top = appbtnRect.top + 'px';
+		wph.style.left = appbtnRect.left + 'px';
+		wph.style.width = appbtnRect.width + 'px';
+		wph.style.height = appbtnRect.height + 'px';
 	}, 10);
 	setTimeout(() => {
 		wph.remove();
