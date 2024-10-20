@@ -12,24 +12,36 @@
 	<body style="padding: 0; margin: 0; width: 100vw; height: 100vh;">
 		<div class="windows95">
 			<div class="desktop">
-				<button class="icon" ondblclick="openWindowLoad('Inputs Test')">
-					<img src="assets/icons/chip_ramdrive-2.png">
-					<span>Inputs Test</span>
-				</button>
-	
 				<button class="icon" ondblclick="openWindowLoad('Explorer')">
 					<img src="assets/icons/computer-4.png">
 					<span>My Computer</span>
 				</button>
+				<button class="icon" ondblclick="openWindowLoad('About Me')">
+					<img src="assets/icons/help_book_cool-4.png">
+					<span>Where did I end up?</span>
+				</button>
 			</div>
 	
 			<div class="taskbar">
-				<button>Start</button>
+				<button><img src="assets/icons/windows-3.png" style="vertical-align: text-bottom;"> Start</button>
 			</div>
 	
-			<template id="Inputs Test">
+			<template id="WinAPI Test App">
+				<template id="Context Menu">
+					<button>Item 1</button>
+					<button>Item 2</button>
+					<button>Item 3</button>
+				</template>
+
+				<template id="Context Menu R">
+					<button>Item 1</button>
+					<button>Item 2</button>
+					<button>Item 3</button>
+					<button onclick="contextMenu(event, 'Context Menu R', true)">Call this menu again</button>
+				</template>
+
 				<div class="titlebar">
-					<span class="title">Inputs Test</span>
+					<span class="title">WinAPI Test App</span>
 					<div class="buttons">
 						<button class="minimize"></button>
 						<button class="maximize"></button>
@@ -41,9 +53,8 @@
 						<div class="framethin-out content flex">
 							<div class="frame-out"></div>
 							<div class="toolbar">
-								<button class="tool">New</button>
-								<button class="tool">Open</button>
-								<button class="tool">Save</button>
+								<button class="tool" onclick="contextMenu(event, 'Context Menu')">Context Menu</button>
+								<button class="tool" onclick="contextMenu(event, 'Context Menu R')">Recursive Menu</button>
 							</div>
 						</div>
 					</div>
@@ -140,28 +151,62 @@
 						<div class="framethin-out content flex">
 							<div class="frame-out"></div>
 							<div class="toolbar">
-								<button class="tool">New</button>
-								<button class="tool">Open</button>
-								<button class="tool">Save</button>
+								<button class="tool">File</button>
+								<button class="tool">Edit</button>
+								<button class="tool">View</button>
+								<button class="tool">Window</button>
+								<button class="tool">Help</button>
 							</div>
 						</div>
 						<div class="framethin-out content flex">
 							<div class="frame-out"></div>
-							<input type="text" class="grow">
-							<button>Search</button>
+							<input type="text" class="grow" value="C:/Users/River/Apps">
+							<button>Go</button>
 						</div>
 					</div>
 					<div class="whiteframe grow">
 						<div class="desktop horizontal">
-							<button class="icon" ondblclick="openWindowLoad('Inputs Test')">
+							<button class="icon" ondblclick="openWindowLoad('WinAPI Test App')">
 								<img src="assets/icons/chip_ramdrive-2.png">
-								<span>Inputs Test</span>
+								<span>WinAPI Test App</span>
 							</button>
-							<button class="icon">
-								<img src="assets/icons/computer-4.png">
-								<span>My Computer</span>
+							<button class="icon" ondblclick="openWindowLoad('About Me')">
+								<img src="assets/icons/help_book_cool-4.png">
+								<span>About Me</span>
 							</button>
 						</div>
+					</div>
+				</div>
+			</template>
+
+			<template id="About Me" style="width: 500px; min-width: 500px;">
+				<template id="My stuff">
+					<button>Programming experience</button>
+					<button>Traditional art</button>
+					<button>3D Modelling & Rendering</button>
+				</template>
+
+				<div class="titlebar">
+					<span class="title">About Me</span>
+					<div class="buttons">
+						<button class="minimize"></button>
+						<button class="maximize"></button>
+						<button class="close"></button>
+					</div>
+				</div>
+
+				<div class="content rows">
+					<div class="framethin">
+						<div class="framethin-out content flex">
+							<div class="frame-out"></div>
+							<div class="toolbar">
+								<button class="tool" onclick="contextMenu(event, 'My stuff')">My stuff</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="content5 rows">
+						<p>Hello! You have wandered into the land of the <span style="color: red;">unknown</span>. That is... my weird web page. I have been crafting this page for a while now. I hope you enjoy exploring it!</p>
 					</div>
 				</div>
 			</template>
