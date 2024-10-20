@@ -12,7 +12,7 @@
 	--title-gradient: linear-gradient(to right, rgb(138, 138, 138) 0%, rgb(201, 201, 201) 100%);
 	--title-gradient-focused: linear-gradient(to right, rgb(9, 0, 131) 0%, rgb(92, 144, 228) 100%);
 
-	--user-select-col: rgb(18, 0, 134);
+	--user-select-col: rgb(26, 8, 143);
 }
 .windows95 * {
 	box-sizing: border-box;
@@ -248,12 +248,15 @@
 /* #endregion */
 
 /* #region Inputs */
-/* Labels */
+
+/* #region Labels */
 input:focus + label, textarea:focus + label {
 	outline: 1px dotted black;
 	outline-offset: -2px;
 }
-/* Buttons */
+/* #endregion */
+
+/* #region Buttons */
 button,
 input[type='submit'],
 input[type='button'],
@@ -284,7 +287,9 @@ button.focused {
 	border: 2px solid;
 	border-image: url('../assets/borders/frame_in.png') 2 stretch;
 }
-/* Text Inputs */
+/* #endregion */
+
+/* #region Text Inputs */
 input[type='number'] {
 	appearance: textfield;
 }
@@ -335,7 +340,9 @@ input:not(
 ):not([disabled]) {
 	cursor: url('../assets/cursors/beam.cur'), auto !important;
 }
-/* Checkboxes and Radios */
+/* #endregion */
+
+/* #region Checkboxes and Radios */
 input[type='checkbox'], input[type='radio'] {
 	max-width: 13px;
 	max-height: 13px;
@@ -359,7 +366,9 @@ input[type='checkbox']:checked {
 input[type='radio']:checked {
 	background-image: url('../assets/inputs/radio_chk.png');
 }
-/* Range */
+/* #endregion */
+
+/* #region Range */
 input[type='range'] {
 	width: 100%;
 	height: 0;
@@ -392,6 +401,32 @@ input[type='range']::-moz-range-thumb {
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
 	background-color: var(--bg);
+}
+/* #endregion */
+
+/* #region Toolbar */
+.toolbar {
+	display: flex;
+
+	gap: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+button.tool {
+	padding: 2px !important;
+	padding-left: 8px !important;
+	padding-right: 8px !important;
+	
+	border: none !important;
+	background: none;
+}
+button.tool:hover {
+	background-color: var(--user-select-col);
+	color: white;
+}
+button.tool:focus {
+	outline: none;
+	text-decoration: underline;
 }
 /* #endregion */
 
