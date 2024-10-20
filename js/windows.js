@@ -158,6 +158,22 @@ function removeAppbtn(w) {
 	if (appbtn) appbtn.remove();
 }
 
+function changeCursor(index) {
+	const cursors = [
+		'../assets/cursors/arrow.cur',
+		'../assets/cursors/pointer.cur',
+		'../assets/cursors/wait.cur',
+		'../assets/cursors/bgwait.cur',
+		'../assets/cursors/beam.cur'
+	];
+
+	
+	document.querySelector('.windows95').style.cursor = 'none';
+	setTimeout(() => {		
+		document.querySelector('.windows95').style.cursor = `url(${cursors[index]}), auto`;
+	}, 50);
+}
+
 function openWindow(templateId) {
 	const template = document.getElementById(templateId);
 	if (!template) return;
@@ -195,26 +211,12 @@ function openWindowLoad(templateId) {
 	}, 800);
 	
 	// Cursor animation
+	changeCursor(2);
 	setTimeout(() => {
-		root.classList.remove('nocur');
-		root.classList.add('loading');
-	}, 50);
-	setTimeout(() => {
-		root.classList.remove('loading');
-		root.classList.add('nocur');
-	}, 100);
-	setTimeout(() => {
-		root.classList.remove('nocur');
-		root.classList.add('wait');
+		changeCursor(3);
 	}, 150);
 	setTimeout(() => {
-		root.classList.remove('wait');
-		root.classList.add('nocur');
-	}, 950);
-	setTimeout(() => {
-		root.classList.remove('loading');
-		root.classList.remove('nocur');
-		root.classList.remove('wait');
+		changeCursor(0);
 	}, 1000);
 }
 

@@ -43,15 +43,6 @@
 
 	cursor: url('../assets/cursors/arrow.cur'), auto;
 }
-.windows95.loading {
-	cursor: url('../assets/cursors/wait.cur'), auto;
-}
-.windows95.wait {
-	cursor: url('../assets/cursors/bgwait.cur'), auto;
-}
-.windows95.nocur {
-	cursor: none;
-}
 
 
 /* #region General */
