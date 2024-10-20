@@ -282,6 +282,9 @@
 	width: 150px;
 	text-align: left;
 }
+.taskbar .appbtn.focused {
+	background-image: url('../assets/borders/selectlight.png');
+}
 /* #endregion */
 
 /* #region Labels */
