@@ -107,6 +107,10 @@
 /* #endregion */
 
 /* #region Window */
+.smallicon {
+	vertical-align: sub;
+	margin-right: 5px;
+}
 .window {
 	display: grid;
 	position: absolute;
@@ -149,9 +153,9 @@
 .window .titlebar .title {
 	height: 100%;
 	
+	padding-left: 5px;
 	text-wrap: nowrap;
 	line-height: 19px;
-	padding-left: 5px;
 
 	color: white;
 	text-shadow: .5px 0 0 white, 1px 0 0 white;

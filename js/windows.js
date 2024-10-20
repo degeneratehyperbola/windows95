@@ -128,8 +128,15 @@ function addAppbtn(w) {
 		if (appbtn.classList.contains('focused'))
 			minimizeWindow(w);
 		else
-			bringUpWindow(w);
+		bringUpWindow(w);
 	};
+
+	if (w.getAttribute('icon')) {
+		const icon = document.createElement('img');
+		icon.src = w.getAttribute('icon');
+		icon.classList.add('smallicon');
+		appbtn.insertAdjacentElement('afterbegin', icon);
+	}
 
 	document.querySelector('.taskbar').appendChild(appbtn);
 }
@@ -168,7 +175,10 @@ function openWindow(templateId) {
 	w.id = template.id;
 	w.classList.add('window', ...template.classList);
 	w.style.cssText = template.style.cssText;
+	if (template.getAttribute('icon'))
+		w.setAttribute('icon', template.getAttribute('icon'));
 	w.appendChild(template.content.cloneNode(true));
+		
 	document.querySelector('.windows95').appendChild(w);
 	w.style.left = window.innerWidth / 2 - w.offsetWidth / 2 + 'px';
 	w.style.top = window.innerHeight / 2 - w.offsetHeight / 2 + 'px';
