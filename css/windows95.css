@@ -3,11 +3,11 @@
 
 /* Constants */
 .windows95 * {
-	--grey-bg: rgb(201, 201, 201);
-	--input-bg: rgb(255, 255, 255);
+	--bg: rgb(201, 201, 201);
+	--bg2: rgb(255, 255, 255);
 
-	--outset-light: rgb(240, 240, 240);
-	--outset-dark: rgb(129, 129, 129);
+	--col-light: rgb(240, 240, 240);
+	--col-dark: rgb(129, 129, 129);
 
 	--title-gradient: linear-gradient(to right, rgb(138, 138, 138) 0%, rgb(201, 201, 201) 100%);
 	--title-gradient-focused: linear-gradient(to right, rgb(9, 0, 131) 0%, rgb(92, 144, 228) 100%);
@@ -51,8 +51,8 @@
 
 /* #region General */
 *[disabled] {
-	color: var(--outset-dark);
-	text-shadow: 1px 1px 0 var(--outset-light);
+	color: var(--col-dark);
+	text-shadow: 1px 1px 0 var(--col-light);
 }
 
 .center {
@@ -95,7 +95,7 @@
 
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 }
 .window[hidden] {
 	display: none;
@@ -235,7 +235,7 @@
 	
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 }
 .taskbar > button {
 	letter-spacing: 1px;
@@ -260,7 +260,7 @@ input[type='button'],
 input[type='reset'] {
 	padding: 2px;
 	
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
 	outline: none;
@@ -305,7 +305,7 @@ input:not(
 
 	border: 2px solid;
 	border-image: url('../assets/borders/frame_in.png') 2 stretch;
-	background-color: var(--input-bg);
+	background-color: var(--bg2);
 	outline: none;
 }
 :is(
@@ -319,7 +319,7 @@ input:not(
 	),
 	textarea
 )[disabled] { 
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 	text-shadow: none;
 }
 :is(
@@ -383,7 +383,7 @@ input[type='range']::-webkit-slider-thumb {
 	
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 }
 input[type='range']::-moz-range-thumb {
 	width: 7px;
@@ -391,7 +391,7 @@ input[type='range']::-moz-range-thumb {
 	
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 }
 /* #endregion */
 
@@ -409,17 +409,17 @@ input[type='range']::-moz-range-thumb {
 	gap: 3px !important;
 }
 .frame {
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 	border: 2px solid;
 	border-image: url('../assets/borders/frame_in.png') 2 stretch;
 }
 .frame-out {
-	background-color: var(--grey-bg);
+	background-color: var(--bg);
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
 }
 .whiteframe {
-	background-color: var(--input-bg);
+	background-color: var(--bg2);
 	border: 2px solid;
 	border-image: url('../assets/borders/frame_in.png') 2 stretch;
 }
