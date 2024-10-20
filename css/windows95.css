@@ -208,7 +208,7 @@
 	right: 0;
 	bottom: 0;
 
-	background-color: var(--user-select-col);
+	background-image: url('../assets/borders/select.png');
 }
 .desktop .icon span {
 	display: block;
