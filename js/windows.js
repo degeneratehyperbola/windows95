@@ -3,8 +3,28 @@ var windows = [];
 
 window.addEventListener('load', () => {
 	implement(document.querySelector('.windows95'));
+
+	preloadImage('assets/cursors/arrow.cur');
+	preloadImage('assets/cursors/beam.cur');
+	preloadImage('assets/cursors/bgwait.cur');
+	preloadImage('assets/cursors/pointer.cur');
+	preloadImage('assets/cursors/wait.cur');
+
+	preloadImage('assets/borders/frame.png');
+	preloadImage('assets/borders/frame_in.png');
+	preloadImage('assets/borders/sub.png');
+	preloadImage('assets/borders/sub_in.png');
+	preloadImage('assets/borders/wph.png');
+	preloadImage('assets/borders/select.png');
+	preloadImage('assets/borders/selectlight.png');
 });
 
+
+function preloadImage(url)
+{
+    var img = new Image();
+    img.src = url;
+}
 
 function implement(container) {
 	const nodeList = container.querySelectorAll('*');
