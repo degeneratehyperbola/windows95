@@ -24,6 +24,7 @@
 	
 			<div class="taskbar">
 				<button><img src="https://win98icons.alexmeub.com/icons/png/windows-4.png" class="smallicon">Start</button>
+				<div class="frame-out" style="margin: 2px;"></div>
 			</div>
 	
 			<template id="WinAPI Test App" icon="https://win98icons.alexmeub.com/icons/png/directx_alt-1.png">
@@ -31,13 +32,16 @@
 					<button>Item 1</button>
 					<button>Item 2</button>
 					<button>Item 3</button>
+					<div class="separatorh"></div>
+					<button>Item 4</button>
 				</template>
 
 				<template id="Context Menu R">
 					<button>Item 1</button>
 					<button>Item 2</button>
 					<button>Item 3</button>
-					<button onclick="contextMenu(event, 'Context Menu R', true)">Call this menu again</button>
+					<div class="separatorh"></div>
+					<button onclick="contextMenu(event, 'Context Menu R', 1)">Call this menu again</button>
 				</template>
 
 				<div class="titlebar">
@@ -55,6 +59,7 @@
 							<div class="toolbar">
 								<button class="tool" onclick="contextMenu(event, 'Context Menu')">Context Menu</button>
 								<button class="tool" onclick="contextMenu(event, 'Context Menu R')">Recursive Menu</button>
+								<button class="tool" onclick="contextMenu(event, 'Context Menu', 2)">Go Up!</button>
 							</div>
 						</div>
 					</div>
@@ -175,6 +180,10 @@
 								<span>About Me</span>
 							</button>
 						</div>
+					</div>
+					<div class="flex growall">
+						<div class="frame content-text basis50">2 object(s)</div>
+						<div class="frame content basis50"></div>
 					</div>
 				</div>
 			</template>

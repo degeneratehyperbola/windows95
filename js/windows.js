@@ -295,7 +295,7 @@ function maximizeWindow(w) {
 	}, 350);
 }
 
-function contextMenu(e, templateId, right = false) {
+function contextMenu(e, templateId, dir = 0) {
 	const template = document.getElementById(templateId);
 	if (!template) return;
 
@@ -307,14 +307,19 @@ function contextMenu(e, templateId, right = false) {
 		cm.classList.add(...template.classList);
 	else
 		cm.classList.add('rows');
-	if (right)
-	{
-		cm.style.left = buttonRect.right + 'px';
-		cm.style.top = buttonRect.top + 'px';
-	}
-	else {
-		cm.style.left = buttonRect.left + 5 + 'px';
-		cm.style.top = buttonRect.bottom + 'px';
+	switch (dir) {
+		case 0:
+			cm.style.left = buttonRect.left + 'px';
+			cm.style.top = buttonRect.bottom + 'px';
+			break;
+		case 1:
+			cm.style.left = buttonRect.right + 'px';
+			cm.style.top = buttonRect.top + 'px';
+			break;
+		case 2:
+			cm.style.left = buttonRect.left + 'px';
+			cm.style.bottom = window.innerHeight - buttonRect.top + 'px';
+			break;
 	}
 	cm.appendChild(template.content.cloneNode(true));
 	document.querySelector('.windows95').appendChild(cm);

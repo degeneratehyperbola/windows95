@@ -44,7 +44,7 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr auto;
 	
-	background-color: rgb(0, 151, 151);
+	background-color: rgb(0, 122, 131);
 
 	cursor: url('../assets/cursors/arrow.cur'), auto;
 }
@@ -100,6 +100,7 @@
 	padding: 2px 4px !important;
 
 	border: none !important;
+	outline-offset: -1px !important;
 }
 .contextmenu button:hover {
 	background-color: var(--user-select-col);
@@ -269,7 +270,7 @@
 	height: min-content;
 	
 	padding: 2px;
-	gap: 2px;
+	gap: 4px;
 	
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
@@ -302,6 +303,10 @@ input[type='button'],
 input[type='reset'] {
 	padding: 2px;
 	
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+	overflow: hidden;
+
 	background-color: var(--bg);
 	border: 2px solid;
 	border-image: url('../assets/borders/frame.png') 2 stretch;
@@ -454,14 +459,12 @@ input[type='range']:focus::-moz-range-thumb {
 .toolbar {
 	display: flex;
 
-	gap: 5px;
+	gap: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 button.tool {
 	padding: 2px !important;
-	padding-left: 8px !important;
-	padding-right: 8px !important;
 	
 	border: none !important;
 	background: none;
@@ -563,6 +566,10 @@ ul.treeview details[open] > summary::before {
 }
 .content {
 	padding: 2px !important;
+	gap: 3px !important;
+}
+.content-text {
+	padding: 0 3px !important;
 	gap: 2px !important;
 }
 .frame {
@@ -651,15 +658,17 @@ ul.treeview details[open] > summary::before {
 /* #endregion */
 
 /* #region Findles */
-.separator {
-	border-top: 1px solid var(--col-dark);
-	margin: 2px;
-}
 .separatorv {
-	height: 100%;
+	margin: 2px;
+
+	border-left: 1px solid var(--col-dark);
+	border-right: 1px solid var(--col-light);
 }
 .separatorh {
-	width: 100%;
+	margin: 2px;
+	
+	border-top: 1px solid var(--col-dark);
+	border-bottom: 1px solid var(--col-light);
 }
 /* #endregion */
 
