@@ -154,7 +154,7 @@ function addAppbtn(w) {
 	if (w.getAttribute('icon')) {
 		const icon = document.createElement('img');
 		icon.src = w.getAttribute('icon');
-		icon.classList.add('smallicon');
+		icon.classList.add('iconinline');
 		appbtn.insertAdjacentElement('afterbegin', icon);
 	}
 

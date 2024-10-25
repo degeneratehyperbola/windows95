@@ -96,8 +96,9 @@
 	z-index: 2;
 }
 .contextmenu button {
+	position: relative;
 	text-align: left;
-	padding: 2px 4px !important;
+	padding: 2px 30px !important;
 
 	border: none !important;
 	outline-offset: -1px !important;
@@ -106,10 +107,18 @@
 	background-color: var(--user-select-col);
 	color: white;
 }
+.contextmenu button img.left {
+	position: absolute;
+	left: 7px;
+}
+.contextmenu button img.right {
+	position: absolute;
+	right: 7px;
+}
 /* #endregion */
 
 /* #region Window */
-.smallicon {
+.iconinline {
 	vertical-align: sub;
 	margin-right: 5px;
 }
