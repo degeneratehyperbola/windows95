@@ -20,17 +20,21 @@
 					<img src="https://win98icons.alexmeub.com/icons/png/help_book_computer-4.png">
 					<span>Where did I end up?</span>
 				</button>
+				<button class="icon" ondblclick="openWindow('WinAPI Test App')">
+					<img src="https://win98icons.alexmeub.com/icons/png/chip_ramdrive-4.png">
+					<span>WinAPI Test App</span>
+				</button>
 			</div>
 	
 			<div class="taskbar">
 				<button><img src="https://win98icons.alexmeub.com/icons/png/windows-4.png" class="iconinline">Start</button>
-				<div class="frame-out" style="margin: 2px;"></div>
+				<div class="frame" style="margin: 2px;"></div>
 			</div>
 	
 			<template id="WinAPI Test App" icon="https://win98icons.alexmeub.com/icons/png/directx_alt-1.png">
 				<template id="Context Menu">
 					<button><img class="left" src="https://win98icons.alexmeub.com/icons/png/directory_closed-1.png">Item 1</button>
-					<button>Item 2<img class="right" src="assets/icons/arrow_right.png"></button>
+					<button class="rightarrow">Item 2</button>
 					<button>Item 3</button>
 					<div class="separatorh"></div>
 					<button>Item 4</button>
@@ -41,7 +45,7 @@
 					<button>Item 2</button>
 					<button>Item 3</button>
 					<div class="separatorh"></div>
-					<button onclick="contextMenu(event, 'Context Menu R', 1)">Call this menu again</button>
+					<button class="rightarrow" onclick="contextMenu(event, 'Context Menu R', 1)">Call this menu again</button>
 				</template>
 
 				<div class="titlebar">
@@ -53,9 +57,9 @@
 					</div>
 				</div>
 				<div class="content rows">
-					<div class="framethin">
-						<div class="framethin-out content flex">
-							<div class="frame-out"></div>
+					<div class="framethin-in">
+						<div class="framethin content flex">
+							<div class="frame"></div>
 							<div class="toolbar">
 								<button class="tool" onclick="contextMenu(event, 'Context Menu')">Context Menu</button>
 								<button class="tool" onclick="contextMenu(event, 'Context Menu R')">Recursive Menu</button>
@@ -95,8 +99,8 @@
 					</div>
 					<textarea placeholder="Textarea"></textarea>
 					<textarea placeholder="Disabled" disabled></textarea>
-
-					<!-- <ul class="treeview">
+					<button onclick="openWindow('Text Rendering Test')">Open Text Rendering Test</button>
+					<ul class="treeview">
 						<li>Table of Contents</li>
 						<li>What is web development?</li>
 						<li>
@@ -138,7 +142,40 @@
 						</li>
 						<li>HTML</li>
 						<li>Special Thanks</li>
-					</ul> -->
+					</ul>
+				</div>
+			</template>
+
+			<template id="Text Rendering Test" style="width: 300px; min-width: 300px;">
+				<div class="titlebar">
+					<span class="title">Text Rendering Test</span>
+					<div class="buttons">
+						<button class="minimize"></button>
+						<button class="maximize"></button>
+						<button class="close"></button>
+					</div>
+				</div>
+
+				<div class="content rows">
+					<div class="content5">
+						<h1>Text</h1>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis saepe tempore debitis at vero natus eaque dolore placeat suscipit nobis alias, dolorem quam fugit! Vero possimus magni adipisci similique officiis.</p>
+						<h2>Styling</h2>
+						<b>Bold</b>
+						<i>Italic</i>
+						<u>Underline</u>
+						<h2>Lists</h2>
+						<ul>
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+							<li>Item 4</li>
+							<ul>
+								<li>Item 1</li>
+								<li>Item 2</li>
+							</ul>
+						</ul>
+					</div>
 				</div>
 			</template>
 
@@ -152,9 +189,9 @@
 					</div>
 				</div>
 				<div class="content flexrows">
-					<div class="framethin">
-						<div class="framethin-out content flex">
-							<div class="frame-out"></div>
+					<div class="framethin-in">
+						<div class="framethin content flex">
+							<div class="frame"></div>
 							<div class="toolbar">
 								<button class="tool">File</button>
 								<button class="tool">Edit</button>
@@ -163,13 +200,13 @@
 								<button class="tool">Help</button>
 							</div>
 						</div>
-						<div class="framethin-out content flex">
-							<div class="frame-out"></div>
+						<div class="framethin content flex">
+							<div class="frame"></div>
 							<input type="text" class="grow" value="C:/Users/River/Apps">
 							<button>Go</button>
 						</div>
 					</div>
-					<div class="whiteframe grow">
+					<div class="whiteframe-in grow">
 						<div class="desktop horizontal">
 							<button class="icon" ondblclick="openWindowLoad('WinAPI Test App')">
 								<img src="https://win98icons.alexmeub.com/icons/png/chip_ramdrive-4.png">
@@ -182,8 +219,8 @@
 						</div>
 					</div>
 					<div class="flex growall">
-						<div class="frame content-text basis50">2 object(s)</div>
-						<div class="frame content basis50"></div>
+						<div class="frame-in content-text basis50">2 object(s)</div>
+						<div class="frame-in content basis50"></div>
 					</div>
 				</div>
 			</template>
@@ -205,9 +242,9 @@
 				</div>
 
 				<div class="content rows">
-					<div class="framethin">
-						<div class="framethin-out content flex">
-							<div class="frame-out"></div>
+					<div class="framethin-in">
+						<div class="framethin content flex">
+							<div class="frame"></div>
 							<div class="toolbar">
 								<button class="tool" onclick="contextMenu(event, 'My stuff')">My stuff</button>
 							</div>
