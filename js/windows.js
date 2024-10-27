@@ -10,13 +10,13 @@ window.addEventListener('load', () => {
 	preloadImage('assets/cursors/pointer.cur');
 	preloadImage('assets/cursors/wait.cur');
 
-	preloadImage('assets/borders/frame.png');
-	preloadImage('assets/borders/frame_in.png');
-	preloadImage('assets/borders/sub.png');
-	preloadImage('assets/borders/sub_in.png');
+	preloadImage('assets/borders/framec.png');
+	preloadImage('assets/borders/framec_in.png');
+	preloadImage('assets/borders/subc.png');
+	preloadImage('assets/borders/subc_in.png');
 	preloadImage('assets/borders/wph.png');
 	preloadImage('assets/borders/select.png');
-	preloadImage('assets/borders/selectlight.png');
+	preloadImage('assets/borders/select_light.png');
 });
 
 
@@ -323,6 +323,9 @@ function contextMenu(e, templateId, dir = 0) {
 	}
 	cm.appendChild(template.content.cloneNode(true));
 	document.querySelector('.windows95').appendChild(cm);
+	
+	const tool = e.target.closest('button.tool');
+	if (tool) tool.classList.add('focused');
 
 	const oldOnMouseDown = document.onmousedown;
 	document.onmousedown = (e) => {
@@ -333,6 +336,7 @@ function contextMenu(e, templateId, dir = 0) {
 			e.clientY < rect.top ||
 			e.clientY > rect.bottom
 		) {
+			if (tool) tool.classList.remove('focused');
 			cm.remove();
 			document.onmousedown = oldOnMouseDown;
 			document.onmousedown(e);
