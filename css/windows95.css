@@ -28,6 +28,7 @@
 	font-family: 'Windows';
 	font-weight: 100;
 	font-size: 13px;
+	line-height: 1;
 	letter-spacing: 0;
 	user-select: none;
 	image-rendering: pixelated;
@@ -207,9 +208,6 @@
 	height: 15px;
 	
 	padding: 0;
-	font-size: 13px;
-	line-height: 5px;
-
 }
 .minimize {
 	background-image: url('../assets/inputs/minimize.png');
@@ -491,25 +489,22 @@ input[type='range']:focus::-moz-range-thumb {
 /* #region Toolbar */
 .toolbar {
 	display: flex;
-
-	gap: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
 }
 button.tool {
-	padding: 2px !important;
-	
-	border: none !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+button.tool:not(:hover),
+.window:not(.focused) button.tool {
+	border: 2px solid transparent;
 	background: none;
 }
-button.tool:focus {
-	outline: none;
-	text-decoration: underline;
+button.tool:is(:focus, .focused) {
+	border: 2px solid;
+	border-image: var(--frame-in);
 }
 /* #endregion */
 
-/* Ultimte CSS Fuckery here */
-/* DO NOT USE! */
 /* #region Tree View */
 ul.treeview {
 	margin: 0;
@@ -529,9 +524,12 @@ ul.treeview ul {
 	list-style: none;
 }
 
-ul.treeview ul > li {
-	line-height: 13px;
+ul.treeview li.focused {
+	outline: 1px dotted black;
+	background-color: var(--user-select-col);
+}
 
+ul.treeview ul > li {
 	position: relative;
 }
 ul.treeview ul > li::before {
@@ -559,37 +557,33 @@ ul.treeview ul > li:last-child::after {
 ul.treeview details > summary {
 	position: relative;
 	display: inline;
-	line-height: 13px;
+	padding-left: 15px;
 	
 	cursor: url('../assets/cursors/pointer.cur'), auto;
+}
+ul.treeview ul details > summary {
+	padding-left: 0;
 }
 ul.treeview details > summary:focus {
 	outline: 1px dotted var(--col-dark);
 	outline-offset: -2px;
 }
-ul.treeview details > summary::before {
-	content: '+';
-	display: inline-block;
-	position: relative;
-	width: 5px;
-	height: 5px;
-	margin-right: 5px;
-	
-	padding: 2px;
-	text-align: center;
-
-	line-height: 5px;
-	font-size: 10px;
-	
-	background-color: var(--bg2);
-	border: 1px solid var(--col-dark);
-}
-ul.treeview ul details > summary::before {
-	margin-left: -20px;
+ul.treeview details > summary::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 11px;
+	height: 11px;
 	z-index: 1;
+
+	background-image: url('../assets/inputs/plus.png');
+	background-size: contain;
 }
-ul.treeview details[open] > summary::before {
-	content: '-';
+ul.treeview ul details > summary::after {
+	left: -20px;
+}
+ul.treeview details[open] > summary::after {
+	background-image: url('../assets/inputs/minus.png');
 }
 /* #endregion */
 
@@ -603,7 +597,7 @@ ul.treeview details[open] > summary::before {
 	gap: 3px !important;
 }
 .content-text {
-	padding: 0 3px !important;
+	padding: 1px 4px !important;
 	gap: 2px !important;
 }
 .frame {
@@ -708,6 +702,11 @@ ul.treeview details[open] > summary::before {
 	border-top: 1px solid;
 	border-bottom: 1px solid;
 	border-image: var(--frame-in);
+}
+
+.goobie {
+	border: 2px solid;
+	border-image: var(--frame);
 }
 /* #endregion */
 
